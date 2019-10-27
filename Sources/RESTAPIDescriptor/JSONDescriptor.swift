@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum JSONObjectPropertyRequriements: Hashable {
+public enum RequriementsDescriptor: Hashable {
   case required
   case optional
   
@@ -29,7 +29,7 @@ public struct JSONObjectPropertyDescriptor: Hashable {
   public init(
     name: String,
     valueType: JSONValueDescriptor,
-    requirements: JSONObjectPropertyRequriements,
+    requirements: RequriementsDescriptor,
     description: String
   ) {
     self.name = name
@@ -59,7 +59,7 @@ public struct JSONObjectDescriptor: Hashable {
   public func addProperty(
     _ name: String,
     _ valueType: JSONValueDescriptor,
-    _ requirements: JSONObjectPropertyRequriements,
+    _ requirements: RequriementsDescriptor,
     _ description: String = "") -> Self {
     var _obj = self
     _obj.properties.append(

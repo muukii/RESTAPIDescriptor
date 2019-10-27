@@ -11,6 +11,7 @@ public struct HTTPHeaderDescriptor: Hashable {
   
   public struct Property: Hashable {
     public var key: String
+    public var required: Bool
     public var valueDescription: String
   }
   
@@ -20,9 +21,14 @@ public struct HTTPHeaderDescriptor: Hashable {
     
   }
   
-  public func addProperty(key: String, valueDescription: String) -> Self {
+  public func addProperty(
+    _ key: String,
+    _ required: RequriementsDescriptor,
+    _ valueDescription: String
+  ) -> Self {
     var _self = self
-    _self.properties.append(Property(key: key, valueDescription: valueDescription))
+    _self.properties.append(Property(key: key, required: required.isRequired, valueDescription: valueDescription))
     return _self
   }
 }
+

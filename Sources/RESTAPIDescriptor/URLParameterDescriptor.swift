@@ -21,9 +21,13 @@ public struct URLParameterDescriptor: Hashable {
     
   }
   
-  public func addProperty(key: String, required: Bool, valueDescription: String) -> Self {
+  public func addProperty(
+    _ key: String,
+    _ required: RequriementsDescriptor,
+    _ valueDescription: String
+  ) -> Self {
     var _self = self
-    _self.properties.append(Property(key: key, required: required, valueDescription: valueDescription))
+    _self.properties.append(Property(key: key, required: required.isRequired, valueDescription: valueDescription))
     return _self
   }
 }
