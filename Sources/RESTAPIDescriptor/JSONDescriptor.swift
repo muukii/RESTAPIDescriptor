@@ -107,11 +107,15 @@ public indirect enum JSONValueDescriptor: Hashable {
     .oneOf(.init(cases))
   }
   
+  public static func oneOf(_ cases: [JSONObjectDescriptor]) -> JSONValueDescriptor {
+    .oneOf(.init(cases.map { .object($0) }))
+  }
+  
   public static func oneOf(_ cases: JSONValueDescriptor...) -> JSONValueDescriptor {
-    .oneOf(.init(cases))
+    .oneOf(cases)
   }
   
   public static func oneOf(_ cases: JSONObjectDescriptor...) -> JSONValueDescriptor {
-    .oneOf(.init(cases.map { .object($0) }))
+    .oneOf(cases)
   }
 }
