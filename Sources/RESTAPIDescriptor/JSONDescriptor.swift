@@ -85,6 +85,10 @@ public struct JSONOneOfDescriptor: Hashable {
   
   public var cases: Set<JSONValueDescriptor>
   
+  public init(_ cases: [JSONValueDescriptor]) {
+    self.cases = .init(cases)
+  }
+  
 }
 
 public indirect enum JSONValueDescriptor: Hashable {
