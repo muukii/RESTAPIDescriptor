@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if false
+
 struct AnyCodingKey: CodingKey {
   
   var stringValue: String
@@ -112,3 +114,5 @@ public struct PostmanSchema: Encodable {
     self.items = items
   }
 }
+
+#endif
