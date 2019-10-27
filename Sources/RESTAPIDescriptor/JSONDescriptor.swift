@@ -72,16 +72,10 @@ public struct JSONObjectDescriptor: Hashable {
     )
     return _obj
   }
-  
-  public func addOwnTypeName() -> Self {
+    
+  public func addDescription(_ description: String) -> Self {
     var _obj = self
-    _obj.properties.append(.init(
-      name: "type",
-      valueType: .string,
-      requirements: .required,
-      description: "The object type `\(name)`"
-      )
-    )
+    _obj.description = description
     return _obj
   }
   
